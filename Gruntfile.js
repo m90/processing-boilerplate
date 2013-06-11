@@ -4,12 +4,20 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		watch: {
 			files: ['sketch/*.pde'],
-			tasks: ['concat', 'connect']
+			tasks: ['concat', 'copy']
 		},
 
-			concat : {
+		copy: {
+			main: {
+				files: [
+					{expand: true, src: ['sketch/data/**'], dest: 'build/data/'} // mirror data folder
+				]
+			}
+		},
+
+		concat : {
 			build : {
-				src: ['sketch/*.pde',],
+				src: ['sketch/*.pde'],
 				dest: 'build/build.pde'
 			}
 		}
@@ -18,8 +26,9 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-contrib-copy');
 
-	grunt.registerTask('default', ['concat' /*initial build*/, 'connect' /* connect's callback will call the watch task */]);
+	grunt.registerTask('default', ['concat', 'copy' /*initial build*/,'connect' /* connect's callback will call the watch task */]);
 
 	var connect = require('connect');
 
