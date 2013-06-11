@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 	<head>
 		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
-		<title>processing-boilerplate : Built with Processing and Processing.js</title>
+		<title>{{sketch}} : Built with Processing and Processing.js</title>
 		<link rel="icon"  type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAQAAVzABAEAjBQAaDwYAWjUGAGE6CQBrQQ0ATS8PAFhAJwBUQC8AbFI6AHVXPACBZk4A4NrWAPb19QAAAAAAAMmZmZmZmgAJIwAAAAAAcMIjPjA+PjAKpxIuMDMzMAm0Ii4zMzMACaIiLt3dMAAJtyIuIzPQAAm0Un5yM+IzKLRkfncy4iIotRF+dyLkIiq0QX53F+EiGrQUTkd34iIatEVu7u5iIVrBVVRBRFRVbAtGZGZla2uwAMu7u7u8vADAAwAAgAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIABAADAAwAA" />
 		<meta name="Generator" content="Processing" />
 		<!-- - - - - - - - - - - - - - - - - - - - -
@@ -37,7 +37,7 @@
 	}
 	#content {
 		margin: 50px auto 0px auto; padding: 25px 25px 15px 25px;
-		width: 640px; min-width: 300px; overflow: auto;
+		width: {{width}}px; min-width: 300px; overflow: auto;
 		border-left: 1px solid #444; border-top: 1px solid #444;
 		border-right: 1px solid #333; border-bottom: 1px solid #333;
 		background-color: #3d3d3d;
@@ -51,7 +51,7 @@
 	<body>
 		<div id="content">
 			<div>
-				<canvas id="" data-processing-sources="build.pde" width="640" height="480">
+				<canvas id="{{id}}" data-processing-sources="build.pde" width="{{width}}" height="{{height}}">
 					<p>Your browser does not support the canvas tag.</p>
 					<!-- Note: you can put any alternative content here. -->
 				</canvas>
@@ -59,9 +59,9 @@
 					<p>JavaScript is required to view the contents of this page.</p>
 				</noscript>
 	    	</div>
-			<h1>processing-boilerplate</h1>
-    		<p id="description">processing.js ftw</p>
-			<p id="sources">Source code: </p>
+			<h1>{{sketch}}</h1>
+    		<p id="description">{{description}}</p>
+			<p id="sources">Source code: {{source}}</p>
 			<p>
 			Built with <a href="http://processing.org" title="Processing">Processing</a>
 			and <a href="http://processingjs.org" title="Processing.js">Processing.js</a>

@@ -4,7 +4,7 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		watch: {
 			files: ['sketch/*.pde'],
-			tasks: ['concat', 'copy']
+			tasks: ['template:htmlfile', 'concat', 'copy']
 		},
 
 		copy: {
@@ -14,7 +14,20 @@ module.exports = function(grunt) {
 				]
 			}
 		},
+		template: {
+			htmlfile: {
+				src: 'templates/index.html',
+				dest: 'build/index.html',
+				engine: 'mustache',
+				variables: {
+					width: '<%= pkg.width %>',
+					height: '<%= pkg.height %>',
+					sketch: '<%= pkg.name %>',
+					description: '<%= pkg.description %>'
 
+				}
+			}
+		},
 		concat : {
 			build : {
 				src: ['sketch/*.pde'],
@@ -27,8 +40,9 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-templater');
 
-	grunt.registerTask('default', ['concat', 'copy' /*initial build*/,'connect' /* connect's callback will call the watch task */]);
+	grunt.registerTask('default', ['template:htmlfile', 'concat', 'copy' /*initial build*/,'connect' /* connect's callback will call the watch task */]);
 
 	var connect = require('connect');
 
