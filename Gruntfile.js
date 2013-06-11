@@ -10,7 +10,7 @@ module.exports = function(grunt) {
 		copy: {
 			main: {
 				files: [
-					{expand: true, src: ['sketch/data/**'], dest: 'build/data/'} // mirror data folder
+					{expand: true, cwd: 'sketch/data', src: ['**'], dest: 'build/data/'} // mirror data folder
 				]
 			}
 		},
