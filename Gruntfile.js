@@ -1,5 +1,3 @@
-var connect = require('connect');
-
 module.exports = function(grunt) {
 
 	grunt.initConfig({
@@ -13,11 +11,6 @@ module.exports = function(grunt) {
 			build : {
 				src: ['sketch/*.pde',],
 				dest: 'build/build.pde'
-			}
-		},
-		exec: {
-			start_server: {
-				command: 'grunt connect:server &'
 			}
 		}
 
