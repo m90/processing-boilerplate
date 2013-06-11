@@ -23,8 +23,8 @@ module.exports = function(grunt) {
 					width: '<%= pkg.width %>',
 					height: '<%= pkg.height %>',
 					sketch: '<%= pkg.name %>',
-					description: '<%= pkg.description %>'
-
+					description: '<%= pkg.description %>',
+					author: '<%= pkg.author %>'
 				}
 			}
 		},

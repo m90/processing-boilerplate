@@ -1,6 +1,7 @@
 {
   "name": "processing-boilerplate",
   "description" : "processing.js ftw",
+  "author" : "Frederik Ring",
   "version": "0.0.1",
   "private": true,
   "width": 640,
