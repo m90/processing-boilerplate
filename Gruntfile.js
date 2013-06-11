@@ -18,7 +18,6 @@ module.exports = function(grunt) {
 
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-exec');
 
 	grunt.registerTask('default', ['concat' /*initial build*/, 'connect' /* connect's callback will call the watch task */]);
