@@ -24,7 +24,8 @@ module.exports = function(grunt) {
 					height: '<%= pkg.height %>',
 					sketch: '<%= pkg.name %>',
 					description: '<%= pkg.description %>',
-					author: '<%= pkg.author %>'
+					author: '<%= pkg.author %>',
+					id: '<%= pkg.name %>' + '<%= grunt.template.today("dd-mm-yyyy") %>'
 				}
 			}
 		},
