@@ -1,10 +1,17 @@
+var dimensions = { //fallback for dimensions
+	width : 128,
+	height: 128
+};
+
+var fs = require('fs');
+
 module.exports = function(grunt) {
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
 		watch: {
 			files: ['sketch/*.pde'],
-			tasks: ['template:htmlfile', 'concat', 'copy'],
+			tasks: ['concat', 'copy', 'config'],
 			options : {
 				livereload : true
 			}
@@ -13,7 +20,8 @@ module.exports = function(grunt) {
 		copy: {
 			main: {
 				files: [
-					{expand: true, cwd: 'sketch/data', src: ['**'], dest: 'build/data/'} // mirror data folder
+					{expand: true, cwd: 'sketch/data', src: ['**'], dest: 'build/'}, // mirror data folder into build
+					{expand: true, cwd: 'sketch/', src: ['*.js'], dest: 'build/'} // copy included js libs
 				]
 			}
 		},
@@ -23,12 +31,13 @@ module.exports = function(grunt) {
 				dest: 'build/index.html',
 				engine: 'mustache',
 				variables: {
-					width: '<%= pkg.width %>',
-					height: '<%= pkg.height %>',
+					width: dimensions.width,
+					height: dimensions.height,
 					sketch: '<%= pkg.name %>',
 					description: '<%= pkg.description %>',
 					author: '<%= pkg.author %>',
-					id: '<%= pkg.name %>' + '<%= grunt.template.today("dd-mm-yyyy") %>'
+					id: '<%= pkg.name %>' + '<%= grunt.template.today("dd-mm-yyyy") %>',
+					scripts: []
 				}
 			}
 		},
@@ -46,7 +55,7 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-templater');
 
-	grunt.registerTask('default', ['template:htmlfile', 'concat', 'copy' /*initial build*/,'connect' /* connect's callback will call the watch task */]);
+	grunt.registerTask('default', ['concat', 'copy', 'config' /*initial build*/,'connect' /* connect's callback will call the watch task */]);
 
 	var connect = require('connect');
 
@@ -55,6 +64,41 @@ module.exports = function(grunt) {
 		grunt.log.writeln('Starting static web server serving build/index.html on localhost port 9001.');
 		connect(connect.static('build')).listen(9001);
 		grunt.task.run('watch');
+
+	});
+
+	grunt.registerTask('config', 'read configuration and init templating', function(){
+
+		var build = grunt.file.read('build/build.pde'); //try to extract size
+
+		var match = build.match(/size\(\d+,\s*\d+\)/g)[0]; //find first size() in concatenated .pde
+
+		if (match){ // if size(x,y) is present in build extract values to use it for canvas element & css
+
+			grunt.log.writeln('Using '+ match + ' as canvas dimensions');
+			var dim = match.toString().replace(/\s*/g,'').replace('size(','').replace(')','').split(',');
+
+			grunt.config.set(['template', 'htmlfile', 'variables', 'width'], dim[0]);
+			grunt.config.set(['template', 'htmlfile', 'variables', 'height'], dim[1]);
+
+		}
+
+		scripts = [];
+		var sketchDir = fs.readdirSync('sketch/');
+
+		sketchDir.forEach(function(el){
+
+			if (new RegExp(/\.js$/).test(el)){
+
+				scripts.push(el);
+
+			}
+
+		});
+
+		grunt.config.set(['template', 'htmlfile', 'variables', 'scripts'], scripts);
+		grunt.log.writeln('Found the following scripts: ' + scripts);
+		grunt.task.run('template:htmlfile');
 
 	});
 
