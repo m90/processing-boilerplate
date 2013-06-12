@@ -1,10 +1,10 @@
 processing-boilerplate
 ======================
 
-Skipping the Processing IDE via Grunt &amp; Node.js
+Circumnavigating the Processing IDE via Grunt &amp; Node.js
 
 ##WARNING##
-THIS IS WORK IN PROGRESS! THINGS WILL FAIL!
+THIS IS WORK IN PROGRESS! THINGS WILL PROBABLY FAIL (A LOT - OFTEN, TOO)!
 
 ##Prerequisites##
 You need to have **[node.js](http://nodejs.org)** and the CLI version of **[Grunt](http://gruntjs.com)** installed.
