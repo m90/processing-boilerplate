@@ -2,9 +2,9 @@ if (window.WebSocket){
 
 	var ws;
 
-	function socket() {
+	var socket = function(){
 
-		ws = new WebSocket("ws://127.0.0.1:35729");
+		ws = new WebSocket('ws://' + window.location.hostname + ':35729');
 
 		ws.onmessage = function (e) {
 
@@ -15,7 +15,7 @@ if (window.WebSocket){
 
 		};
 
-	}
+	};
 
 	setInterval(function () {
 
