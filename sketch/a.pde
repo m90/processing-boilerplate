@@ -1,4 +1,4 @@
 void setup(){
 	size(640, 480);
-	background(20, 2, 25);
+	background(1, 2, 3);
 }

@@ -1,4 +1,8 @@
 void draw(){
+  fill(0, 0, 0, 25);
+  strokeWeight(0);
+  stroke(0, 0, 0, 0);
+  rect(0, 0, width, height);
 }
 
 void mouseDragged(){

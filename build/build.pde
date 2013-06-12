@@ -1,8 +1,12 @@
 void setup(){
 	size(640, 480);
-	background(20, 2, 25);
+	background(1, 2, 3);
 }
 void draw(){
+  fill(0, 0, 0, 25);
+  strokeWeight(0);
+  stroke(0, 0, 0, 0);
+  rect(0, 0, width, height);
 }
 
 void mouseDragged(){
