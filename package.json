@@ -4,8 +4,6 @@
   "author": "Frederik Ring",
   "version": "0.0.1",
   "private": true,
-  "width": 640,
-  "height": 480,
   "devDependencies": {
     "grunt": "~0.4.1",
     "connect": "~2.7.11",
