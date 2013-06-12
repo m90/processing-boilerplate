@@ -1,10 +1,20 @@
 void setup(){
 	size(640, 480);
-	background(255,0,255);
+	background(10, 5, 200);
 }
 void draw(){
 }
 
 void mouseDragged(){
+
+	float speed = dist(pmouseX, pmouseY, mouseX, mouseY);
+	float w = map(speed, 0, 100, 1, 40);
+	float a = map(speed, 0, 100, 125, 255);
+	float r = map(mouseX, 0, width, 1, 255);
+	float g = map(mouseY, 0, height, 1, 255);
+	float b = map(dist(mouseX, mouseY, width / 2, height / 2), 0, height, 1, 255);
+	strokeWeight(w);
+	stroke(r, g, 0, a);
 	line(pmouseX, pmouseY, mouseX, mouseY);
+
 }

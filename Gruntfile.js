@@ -4,7 +4,10 @@ module.exports = function(grunt) {
 		pkg: grunt.file.readJSON('package.json'),
 		watch: {
 			files: ['sketch/*.pde'],
-			tasks: ['template:htmlfile', 'concat', 'copy']
+			tasks: ['template:htmlfile', 'concat', 'copy'],
+			options : {
+				livereload : true
+			}
 		},
 
 		copy: {
@@ -51,7 +54,6 @@ module.exports = function(grunt) {
 
 		grunt.log.writeln('Starting static web server serving build/index.html on localhost port 9001.');
 		connect(connect.static('build')).listen(9001);
-
 		grunt.task.run('watch');
 
 	});

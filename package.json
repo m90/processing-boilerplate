@@ -1,7 +1,7 @@
 {
   "name": "processing-boilerplate",
-  "description" : "processing.js ftw",
-  "author" : "Frederik Ring",
+  "description": "processing.js ftw",
+  "author": "Frederik Ring",
   "version": "0.0.1",
   "private": true,
   "width": 640,
@@ -13,6 +13,6 @@
     "grunt-contrib-watch": "~0.4.4",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-templater": "0.0.4-1",
-    "mustache": "~0.7.2"
+    "mustache": "~0.7.2",
   }
 }
