@@ -13,6 +13,6 @@
     "grunt-contrib-watch": "~0.4.4",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-templater": "0.0.4-1",
-    "mustache": "~0.7.2",
+    "mustache": "~0.7.2"
   }
 }
