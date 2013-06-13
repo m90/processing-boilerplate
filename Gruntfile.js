@@ -17,7 +17,10 @@ module.exports = function(grunt) {
 			}
 		},
 		clean: {
-			build: ['build/']
+			build: [
+				'build/*',
+				'!build/.gitignore'
+				]
 		},
 		copy: {
 			main: {
