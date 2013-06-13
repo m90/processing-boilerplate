@@ -16,12 +16,15 @@ module.exports = function(grunt) {
 				livereload : true
 			}
 		},
-
+		clean: {
+			build: ['build/']
+		},
 		copy: {
 			main: {
 				files: [
 					{expand: true, cwd: 'sketch/data', src: ['**'], dest: 'build/'}, // mirror data folder into build
-					{expand: true, cwd: 'sketch/', src: ['*.js'], dest: 'build/'} // copy included js libs
+					{expand: true, cwd: 'sketch/', src: ['*.js'], dest: 'build/'}, // copy included js libs
+					{expand: true, cwd: 'res/', src: ['**'], dest: 'build/'} // copy processing.js and livereload.js into build folder
 				]
 			}
 		},
@@ -53,9 +56,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks('grunt-contrib-concat');
 	grunt.loadNpmTasks('grunt-contrib-watch');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-templater');
 
-	grunt.registerTask('default', ['concat', 'copy', 'config' /*initial build*/,'connect' /* connect's callback will call the watch task */]);
+	grunt.registerTask('default', ['clean', 'copy', 'concat', 'config' /*initial build*/,'connect' /* connect's callback will call the watch task */]);
 
 	var connect = require('connect');
 
@@ -97,7 +101,13 @@ module.exports = function(grunt) {
 		});
 
 		grunt.config.set(['template', 'htmlfile', 'variables', 'scripts'], scripts);
-		grunt.log.writeln('Found the following scripts: ' + scripts);
+
+		if (scripts.length){
+
+			grunt.log.writeln('Found and included the following scripts: ' + scripts);
+
+		}
+
 		grunt.task.run('template:htmlfile');
 
 	});

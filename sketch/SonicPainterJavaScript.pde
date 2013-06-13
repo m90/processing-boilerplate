@@ -46,9 +46,9 @@ void mouseDragged()
   //rect(mouseX, mouseY, speed, speed);
   //line(pmouseX, pmouseY,mouseX, mouseY);
   //brush1(mouseX, mouseY,speed, speed,lineWidth);
-  //brush2(mouseX, mouseY,speed, speed,lineWidth);
-  //brush3(mouseX, mouseY,speed, speed,lineWidth);
-  //brush4(pmouseX, pmouseY,mouseX, mouseY,lineWidth);
+  brush2(mouseX, mouseY,speed, speed,lineWidth);
+  brush3(mouseX, mouseY,speed, speed,lineWidth);
+  brush4(pmouseX, pmouseY,mouseX, mouseY,lineWidth);
 
   //brush5(pmouseX, pmouseY,mouseX, mouseY,lineWidth);
   //brush6(mouseX, mouseY,speed, speed,lineWidth);
