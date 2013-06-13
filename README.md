@@ -33,5 +33,4 @@ If you need to include external libraries/APIs just place the `.js` file in the 
 Place assets like sound or images inside a `data` folder inside your `sketch` folder, they will also be copied by the system.
 ***
 ###License & Copyright###
-(c) 2013 [Frederik Ring](http://www.frederikring.com)
-[MIT License](http://opensource.org/licenses/MIT)
+(c) 2013 [Frederik Ring](http://www.frederikring.com) - Released under the [MIT License](http://opensource.org/licenses/MIT)

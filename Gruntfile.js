@@ -1,11 +1,6 @@
-var dimensions = { //fallback for dimensions
-	width : 128,
-	height: 128
-};
-
-var fs = require('fs');
-
 module.exports = function(grunt) {
+
+	var fs = require('fs');
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -16,10 +11,10 @@ module.exports = function(grunt) {
 				livereload : true
 			}
 		},
-		clean: {
+		clean: { //clean up build folder on first run
 			build: [
 				'build/*',
-				'!build/.gitignore'
+				'!build/.gitignore' //don't delete .gitignore
 				]
 		},
 		copy: {
@@ -37,8 +32,8 @@ module.exports = function(grunt) {
 				dest: 'build/index.html',
 				engine: 'mustache',
 				variables: {
-					width: dimensions.width,
-					height: dimensions.height,
+					width: 128, //fall back to 128 x 128 if no size(width, height) is found in code
+					height: 128,
 					sketch: '<%= pkg.name %>',
 					description: '<%= pkg.description %>',
 					author: '<%= pkg.author %>',
@@ -78,7 +73,7 @@ module.exports = function(grunt) {
 
 		var build = grunt.file.read('build/build.pde'); //try to extract size
 
-		var match = build.match(/size\(\d+,\s*\d+\)/g)[0]; //find first size() in concatenated .pde
+		var match = build.match(/size\(\d+,\s*\d+\)/g)[0]; //find first size() call in concatenated .pde
 
 		if (match){ // if size(x,y) is present in build extract values to use it for canvas element & css
 
@@ -91,11 +86,10 @@ module.exports = function(grunt) {
 		}
 
 		scripts = [];
-		var sketchDir = fs.readdirSync('sketch/');
 
-		sketchDir.forEach(function(el){
+		fs.readdirSync('sketch/').forEach(function(el){
 
-			if (new RegExp(/\.js$/).test(el)){
+			if (el.slice(-3) === '.js'){
 
 				scripts.push(el);
 
