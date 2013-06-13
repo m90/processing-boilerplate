@@ -63,7 +63,7 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('connect', 'Start a custom static web server.', function() {
 
-		grunt.log.writeln('Starting static web server serving build/index.html on localhost port 9001.');
+		grunt.log.writeln('Starting static web server serving ' + 'build/index.html'.cyan + ' on ' + 'localhost'.cyan + ' port ' + '9001.'.cyan);
 		connect(connect.static('build')).listen(9001);
 		grunt.task.run('watch');
 
@@ -77,17 +77,22 @@ module.exports = function(grunt) {
 
 		if (match){ // if size(x,y) is present in build extract values to use it for canvas element & css
 
-			grunt.log.writeln('Using '+ match + ' as canvas dimensions');
 			var dim = match.toString().replace(/\s*/g,'').replace('size(','').replace(')','').split(',');
 
 			grunt.config.set(['template', 'htmlfile', 'variables', 'width'], dim[0]);
 			grunt.config.set(['template', 'htmlfile', 'variables', 'height'], dim[1]);
 
+			grunt.log.writeln('Using '+ match.toString().cyan + ' as canvas dimensions');
+
+		} else {
+
+			grunt.log.writeln('Using fallback of'+ '128x128'.cyan + ' as canvas dimensions');
+
 		}
 
 		scripts = [];
 
-		fs.readdirSync('sketch/').forEach(function(el){
+		fs.readdirSync('sketch/').forEach(function(el){//find all javascript files in sketch directory and include them in the build folder and the HTML file
 
 			if (el.slice(-3) === '.js'){
 
@@ -101,7 +106,7 @@ module.exports = function(grunt) {
 
 		if (scripts.length){
 
-			grunt.log.writeln('Found and included the following scripts: ' + scripts);
+			grunt.log.writeln('Found and included the following scripts: ' + scripts.toString().cyan);
 
 		}
 
