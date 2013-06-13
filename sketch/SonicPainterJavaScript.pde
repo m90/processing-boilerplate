@@ -45,13 +45,13 @@ void mouseDragged()
 
   //rect(mouseX, mouseY, speed, speed);
   //line(pmouseX, pmouseY,mouseX, mouseY);
-  //brush1(mouseX, mouseY,speed, speed,lineWidth);
+  brush1(mouseX, mouseY,speed, speed,lineWidth);
   brush2(mouseX, mouseY,speed, speed,lineWidth);
   brush3(mouseX, mouseY,speed, speed,lineWidth);
   brush4(pmouseX, pmouseY,mouseX, mouseY,lineWidth);
 
-  //brush5(pmouseX, pmouseY,mouseX, mouseY,lineWidth);
-  //brush6(mouseX, mouseY,speed, speed,lineWidth);
+  brush5(pmouseX, pmouseY,mouseX, mouseY,lineWidth);
+  brush6(mouseX, mouseY,speed, speed,lineWidth);
   brush7(pmouseX, pmouseY,mouseX, mouseY,lineWidth);
 
   player.setFilter(map(mouseY,0,height,50,5000),10);
