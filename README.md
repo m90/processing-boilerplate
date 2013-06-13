@@ -1,7 +1,7 @@
 processing-boilerplate
 ======================
 
-This setup lets you develop **[Processing](http://www.processing.org)** applications in any editor without having to use the Processing IDE.
+This setup lets you develop **[Processing](http://www.processing.org)** applications in any editor without having to use or install the Processing IDE.
 
 ##Prerequisites##
 You need to have **[node.js](http://nodejs.org)** and the CLI version of **[Grunt](http://gruntjs.com)** installed.
