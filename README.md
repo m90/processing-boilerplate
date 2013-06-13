@@ -31,7 +31,7 @@ Work and develop inside the `sketch` directory and Grunt will listen for all cha
 If you need to include external libraries/APIs just place the `.js` file in the `sketch` folder, the build system will copy them into the `build` folder and include them into the final HTML.
 ###Assets###
 Place assets like sound or images inside a `data` folder inside your `sketch` folder, they will also be copied by the system.
-======================
+***
 ###License & Copyright###
 (c) 2013 [Frederik Ring](http://www.frederikring.com)
 [MIT License](http://opensource.org/licenses/MIT)
