@@ -22,13 +22,13 @@ module.exports = function(grunt) {
 				files: [
 					{expand: true, cwd: 'sketch/data', src: ['**'], dest: 'build/'}, // mirror data folder into build
 					{expand: true, cwd: 'sketch/', src: ['*.js'], dest: 'build/'}, // copy included js libs
-					{expand: true, cwd: 'res/', src: ['**'], dest: 'build/'} // copy processing.js and livereload.js into build folder
+					{expand: true, cwd: 'res/', src: ['processing.js', 'livereload.js'], dest: 'build/'} // copy processing.js and livereload.js into build folder
 				]
 			}
 		},
 		template: {
 			htmlfile: {
-				src: 'templates/index.html',
+				src: 'res/templates/index.html',
 				dest: 'build/index.html',
 				engine: 'mustache',
 				variables: {
