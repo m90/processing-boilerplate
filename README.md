@@ -6,14 +6,14 @@ This setup lets you develop **[Processing](http://www.processing.org)** applicat
 It also comes with handy features like a **built-in webserver**, **automatic builds on file save** and **livereloading**.
 
 ##Prerequisites##
-You need to have **[node.js](http://nodejs.org)** (>=0.10.5) and the CLI version of **[Grunt](http://gruntjs.com)** (>=0.4.0) installed.
+You need to have **[node.js](http://nodejs.org)** (>=0.10.5) installed. A global installation of the CLI version of **[Grunt](http://gruntjs.com)** (>=0.4.0) is also required, but this will auto-install itself if it is not found on your machine.
 
 ##Installation##
 Clone the repo using git (or download and unzip the repo inside a new folder):
 ```sh
 $ git clone git://github.com/m90/processing-boilerplate.git
 ```
-Navigate to the repository's root and install all dev dependencies:
+Navigate to the repository's root and install all dependencies:
 ```sh
 $ npm install
 ```

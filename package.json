@@ -3,6 +3,9 @@
   "description": "Develop Processing Applications in any editor without having to use the Processing IDE",
   "version": "0.0.1",
   "private": true,
+  "scripts": {
+    "preinstall": "npm list grunt-cli -g || npm install grunt-cli -g"
+  },
   "devDependencies": {
     "grunt": "~0.4.1",
     "connect": "~2.7.11",
