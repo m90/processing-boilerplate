@@ -3,7 +3,7 @@ processing-boilerplate
 
 This setup lets you develop **[Processing](http://www.processing.org)** applications in any editor without having to use or install the Processing IDE.
 
-It also comes with handy features like a built-in webserver and livereloading.
+It also comes with handy features like a **built-in webserver**, **automatic builds on file save** and **livereloading**.
 
 ##Prerequisites##
 You need to have **[node.js](http://nodejs.org)** (>=0.10.5) and the CLI version of **[Grunt](http://gruntjs.com)** (>=0.4.0) installed.
@@ -32,7 +32,7 @@ You can use another port for your webserver by using the `port` option like:
 ```
 $ grunt --port=1337
 ```
-You can turn of livereloading by using the `no-livereload` flag like:
+You can turn off livereloading by using the `no-livereload` flag like:
 ```
 $ grunt --no-livereload
 ```
