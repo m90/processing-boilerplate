@@ -1,7 +1,7 @@
 void brush1(int x,int y, int px, int py, int lineWidth) {
   strokeWeight(lineWidth);
-  ellipse(x,y,px,py); 
-  
+  ellipse(x,y,px,py);
+
   return;
 }
 
@@ -11,7 +11,7 @@ void brush2(int x,int y, int px, int py, int lineWidth) {
   pushMatrix();
   translate(x,y);
   rotate(random(px));
-  rect(0+random(50),0+random(50),10,10); 
+  rect(0+random(50),0+random(50),10,10);
   popMatrix();
   return;
 }
@@ -65,7 +65,7 @@ void brush6(int x,int y, int px, int py, int lineWidth) {
   ellipse(width/2+((width/2)-y),width/2-((width/2)-x),px,py);
   ellipse(height/2-((height/2)-y),width/2-((width/2)-x),px,py);
   ellipse(width/2+((width/2)-y),height/2+((height/2)-x),px,py);
-  ellipse(width/2-((width/2)-y),height/2+((height/2)-x),px,py);  
+  ellipse(width/2-((width/2)-y),height/2+((height/2)-x),px,py);
   return;
 }
 

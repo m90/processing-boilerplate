@@ -8,7 +8,7 @@ module.exports = function(grunt) {
 			files: ['sketch/**'],
 			tasks: ['concat', 'copy', 'config'],
 			options : {
-				livereload : true
+				livereload : !grunt.option('no-livereload')
 			}
 		},
 		clean: { //clean up build folder on first run
@@ -63,13 +63,16 @@ module.exports = function(grunt) {
 
 	grunt.registerTask('connect', 'Start a custom static web server.', function() {
 
-		grunt.log.writeln('Starting static web server serving ' + 'build/index.html'.cyan + ' on ' + 'localhost'.cyan + ' port ' + '9001.'.cyan);
-		connect(connect.static('build')).listen(9001);
+		var port = 	grunt.option('port') || 9001;
+
+		grunt.log.writeln('Starting static web server serving ' + 'build/index.html'.cyan + ' on ' + 'localhost'.cyan + ' port ' + port.toString().cyan + '.');
+		connect(connect.static('build')).listen(port);
 		grunt.task.run('watch');
 
 	});
 
 	grunt.registerTask('config', 'read configuration and init templating', function(){
+
 
 		var build = grunt.file.read('build/build.pde'); //try to extract size
 

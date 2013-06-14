@@ -27,6 +27,15 @@ $ grunt
 This will fire up a static server serving a JavaScript version of your processing sketch to `localhost:9001` (if you want access this from other machines use `192.168.x.xxx:9001` using your server's local IP). To end this process just hit `Ctrl + C` and you're done.
 
 Work and develop inside the `sketch` directory and Grunt will listen for all changes inside this folder. Each time you change a file a new version of your sketch is rendered and "deployed". If your browser supports WebSockets the sketch will automatically reload, in case not: just hit reload yourself.
+###Command line options###
+You can use another port for your webserver by using the `port` option like:
+```
+$ grunt --port=1337
+```
+You can turn of livereloading by using the `no-livereload` flag like:
+```
+$ grunt --no-livereload
+```
 ###External libraries###
 If you need to include external libraries/APIs just place the `.js` file in the `sketch` folder, the build system will copy them into the `build` folder and include them into the final HTML.
 ###Assets###
