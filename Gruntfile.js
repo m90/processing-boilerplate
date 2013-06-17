@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 		},
 		template: {
 			htmlfile: {
-				src: 'res/templates/index.html',
+				src: grunt.option('naked') ? 'res/templates/naked.html' : 'res/templates/index.html',
 				dest: 'build/index.html',
 				engine: 'mustache',
 				variables: {
@@ -38,7 +38,8 @@ module.exports = function(grunt) {
 					description: '<%= pkg.description %>',
 					author: '<%= pkg.author %>',
 					id: '<%= pkg.name %>' + '<%= grunt.template.today("dd-mm-yyyy") %>',
-					scripts: []
+					scripts: [],
+					livereload: !grunt.option('no-livereload')
 				}
 			}
 		},

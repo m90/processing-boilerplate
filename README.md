@@ -36,6 +36,10 @@ You can turn off livereloading by using the `no-livereload` flag like:
 ```sh
 $ grunt --no-livereload
 ```
+If you want the system to render a "less fancy" version of the webpage (just the canvas element and nothing else) you can use the `naked` flag:
+```sh
+$ grunt --naked
+```
 ###External libraries###
 If you need to include external libraries/APIs just place the `.js` file in the `sketch` folder, the build system will copy them into the `build` folder and include them into the final HTML.
 ###Assets###
