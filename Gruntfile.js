@@ -77,11 +77,11 @@ module.exports = function(grunt) {
 
 		var build = grunt.file.read('build/build.pde'); //try to extract size
 
-		var match = build.match(/size\(\d+,\s*\d+\)/g)[0]; //find first size() call in concatenated .pde
+		var match = build.match(/size\(\d+,\s*\d+\)/g); //find first size() call in concatenated .pde
 
-		if (match){ // if size(x,y) is present in build extract values to use it for canvas element & css
+		if (match && match.length){ // if size(x,y) is present in build extract values to use it for canvas element & css
 
-			var dim = match.toString().replace(/\s*/g,'').replace('size(','').replace(')','').split(',');
+			var dim = match[0].toString().replace(/\s*/g,'').replace('size(','').replace(')','').split(',');
 
 			grunt.config.set(['template', 'htmlfile', 'variables', 'width'], dim[0]);
 			grunt.config.set(['template', 'htmlfile', 'variables', 'height'], dim[1]);
