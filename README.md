@@ -17,6 +17,12 @@ Navigate to the repository's root and install all dependencies:
 ```sh
 $ npm install
 ```
+This should also install `grunt-cli` globally if it is not present on your system, but apparently there's no solution that works 100% reliably on all OSes and shells, so if you are having trouble running the boilerplate you may still need to check this manually and install `grunt-cli` globally like:
+```sh
+$ npm list grunt-cli -g
+$ npm install grunt-cli -g
+```
+
 If you want to, edit the information in the `package.json` file to suit your sketch's needs.
 
 ##Workflow##
