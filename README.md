@@ -1,7 +1,7 @@
 processing-boilerplate
 ======================
 
-This setup lets you develop **[Processing](http://www.processing.org)** applications in any editor without having to use or install the Processing IDE.
+This setup lets you develop **[Processing](http://www.processing.org)** applications (using `processing.js`) in any editor without having to use or install the Processing IDE.
 
 It also comes with handy features like a **built-in webserver**, **automatic builds on file save** and **livereloading**.
 
